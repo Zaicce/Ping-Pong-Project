@@ -1,0 +1,47 @@
+#include <pic32mx.h>
+#include <stdint.h>
+
+
+
+int flag = 0;
+
+
+void ledinit1(){
+
+    TRISECLR = 0xff;
+    PORTESET = 0x80;
+
+}
+
+void sweeper(){
+    //int i = 0;
+
+
+        if(PORTE==0x01){
+
+
+        flag = 1;
+
+        }
+        if(flag == 0){
+
+        PORTE = (PORTE >> 1);
+
+        }
+
+        if(flag == 1){
+            PORTE = (PORTE << 1);
+            if(PORTE>=0x80){
+
+
+            flag = 0;
+
+            }
+        }
+
+        delay(500000);
+
+    //}
+
+
+    }

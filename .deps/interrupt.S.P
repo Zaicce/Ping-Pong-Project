@@ -1,0 +1,2 @@
+interrupt.S.o: interrupt.S
+interrupt.S :
